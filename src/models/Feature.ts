@@ -1,4 +1,4 @@
-export interface Feature {
+export interface FeatureModel {
   title: string;
   description: string;
   image: {

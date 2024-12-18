@@ -1,10 +1,18 @@
-// components/Layout.tsx
-import React from "react";
+import React, { ReactNode } from "react";
+import Header from "./Header";
+import { HeaderModel } from "@/models/Header";
+import { FooterModel } from "@/models/Footer";
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+interface LayoutProps {
+  header: HeaderModel;
+  footer: FooterModel;
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, header }) => {
   return (
     <>
-      <header/>
+      <Header data={header}/>
       <main>{children}</main>
       <footer/>
     </>

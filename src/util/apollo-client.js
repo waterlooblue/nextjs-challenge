@@ -12,9 +12,28 @@ const http = new HttpLink({
   },
 });
 
-const apolloClient = new ApolloClient({
+const client = new ApolloClient({
   link: ApolloLink.from([http]),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          headerCollection: {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            merge(existing = [], incoming) {
+              return incoming;
+            },
+          },
+          footerCollection: {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            merge(existing = [], incoming) {
+              return incoming;
+            },
+          },
+        },
+      },
+    },
+  }),
 });
 
-export default apolloClient;
+export default client;
