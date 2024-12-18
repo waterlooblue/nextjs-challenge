@@ -5,6 +5,8 @@ export interface PageModel {
   subtitle: string;
   heroImage: {
     url: string;
+    width: number;
+    height: number;
   }
   heroBackground: {
     url: string;
