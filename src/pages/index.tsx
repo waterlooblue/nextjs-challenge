@@ -1,32 +1,46 @@
 import { GetStaticProps } from "next";
+import { HeaderModel } from "@/models/Header";
+import { FooterModel } from "@/models/Footer";
+import { PageModel } from "@/models/Page";
 import { GET_PAGE } from "@/graphql/queries";
-import apolloClient from "@/util/apollo-client";
-import { Page } from "@/models/Page";
+import client from "@/util/apollo-client";
+import Layout from "@/components/Layout";
 
 interface PageData {
+  headerCollection: {
+    items: HeaderModel[];
+  };
   pageCollection: {
-    items: Page[];
+    items: PageModel[];
+  };
+  footerCollection: {
+    items: FooterModel[];
   };
 }
 
 interface Props {
-  page: Page;
+  header: HeaderModel;
+  page: PageModel;
+  footer: FooterModel;
 }
 
-const Home = ({ page }: Props) => {
-  console.log(page)
+const Home = ({ header, page, footer }: Props) => {
+  console.log(header);
+  console.log(footer);
   return (
-    <>
-      <h1>Landing Page</h1>
-    </>
+    <Layout header={header} footer={footer}>
+      <h1>{page.title}</h1>
+    </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await apolloClient.query<PageData>(GET_PAGE);
+  const { data } = await client.query<PageData>({ query: GET_PAGE });
   return {
     props: {
+      header: data.headerCollection.items[0],
       page: data.pageCollection.items[0],
+      footer: data.footerCollection.items[0]
     },
   };
 };
