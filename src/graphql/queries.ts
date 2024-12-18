@@ -19,6 +19,8 @@ export const GET_PAGE = gql`
         heroBackground {
           url
         }
+        inputLabel
+        buttonCopy
         featureBackground {
           url
         }

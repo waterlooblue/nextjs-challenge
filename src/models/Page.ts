@@ -9,6 +9,8 @@ export interface PageModel {
   heroBackground: {
     url: string;
   }
+  inputLabel: string;
+  buttonCopy: string;
   featureBackground: {
     url: string;
   }
