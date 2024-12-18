@@ -15,10 +15,16 @@ export const GET_PAGE = gql`
         subtitle
         heroImage {
           url
+          width
+          height
         }
         heroBackground {
           url
+          width
+          height
         }
+        inputLabel
+        buttonCopy
         featureBackground {
           url
         }

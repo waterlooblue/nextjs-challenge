@@ -12,9 +12,9 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, header, footer }) => {
   return (
-    <div className="flex flex-col justify-between min-h-screen bg-[#f6f8fa]">
+    <div className="overflow-hidden xl:container flex flex-col justify-between min-h-screen bg-white shadow-xl">
       <Header data={header}/>
-      <main>{children}</main>
+      <main className="grow">{children}</main>
       <Footer data={footer}/>
     </div>
   );

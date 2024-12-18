@@ -1,0 +1,19 @@
+<svg width="61" height="52" viewBox="0 0 61 52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path
+      d="M32 43.992c17.673 0 28.05 17.673 28.05 0S49.674 0 32 0C14.327 0 0 14.327 0 32c0 17.673 14.327 11.992 32 11.992z"
+      id="bubble-1-a"></path>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="bubble-1-b" fill="#fff">
+      <use xlink:href="#bubble-1-a"></use>
+    </mask>
+    <use fill="#FF6D8B" xlink:href="#bubble-1-a"></use>
+    <path
+      d="M2 43.992c17.673 0 28.05 17.673 28.05 0S19.674 0 2 0c-17.673 0-32 14.327-32 32 0 17.673 14.327 11.992 32 11.992z"
+      fill="#FF4F73" mask="url(#bubble-1-b)"></path>
+    <path
+      d="M74 30.992c17.673 0 28.05 17.673 28.05 0S91.674-13 74-13C56.327-13 42 1.327 42 19c0 17.673 14.327 11.992 32 11.992z"
+      fill-opacity=".8" fill="#FFA3B5" mask="url(#bubble-1-b)"></path>
+  </g>
+</svg>

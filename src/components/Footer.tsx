@@ -6,9 +6,9 @@ interface Props {
 
 const LayoutFooter = ({ data }: Props) => {
   return (
-    <footer className="lg:container relative overflow-hidden min-h-[217px]">
+    <footer className="relative overflow-hidden min-h-[217px]">
       <div className="absolute bg-cover bg-center bg-no-repeat min-h-[217px] min-w-[1440px]" style={{backgroundImage: `url(${data?.background.url})`}}></div>
-      <span className="absolute left-1/2 transform bottom-1/3 -translate-x-1/2">&copy; {data?.copyright}</span>
+      <span className="absolute left-1/2 transform bottom-1/3 -translate-x-1/2 text-white">&copy; {data?.copyright}</span>
     </footer>
   );
 };

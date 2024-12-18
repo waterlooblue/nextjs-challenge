@@ -5,6 +5,7 @@ import { PageModel } from "@/models/Page";
 import { GET_PAGE } from "@/graphql/queries";
 import client from "@/util/apollo-client";
 import Layout from "@/components/Layout";
+import Hero from "@/components/Hero";
 
 interface PageData {
   headerCollection: {
@@ -24,10 +25,12 @@ interface Props {
   footer: FooterModel;
 }
 
+
+
 const Home = ({ header, page, footer }: Props) => {
   return (
     <Layout header={header} footer={footer}>
-      <h1>{page.title}</h1>
+      <Hero data={page}/>
     </Layout>
   );
 };
