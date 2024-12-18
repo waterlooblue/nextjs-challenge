@@ -1,4 +1,4 @@
-export interface Header {
+export interface HeaderModel {
   logo: {
     url: string
   }

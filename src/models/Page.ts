@@ -1,6 +1,6 @@
-import { Feature } from "./Feature";
+import { FeatureModel } from "./Feature";
 
-export interface Page {
+export interface PageModel {
   title: string;
   subtitle: string;
   heroImage: {
@@ -12,5 +12,5 @@ export interface Page {
   featureBackground: {
     url: string;
   }
-  featuresCollection: Feature[]
+  featuresCollection: FeatureModel[];
 }
