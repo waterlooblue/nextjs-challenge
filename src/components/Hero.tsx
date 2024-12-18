@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import { PageModel } from "@/models/Page";
 
 interface Props {
@@ -10,17 +11,18 @@ const LayoutHeader = ({ data }: Props) => {
     title,
     subtitle,
     inputLabel,
-    buttonCopy
+    buttonCopy,
+    heroBackground
   } = data || {};
   const [inputValue, setInputValue] = useState('');
   const handleOnClick = () => {
     console.log(inputValue)
   }
   return (
-    <div className="px-5 text-center">
-      <h1 className="text-4xl text-[#202b36] font-bold mb-8">{title}</h1>
-      <p className="text-[#5b6f82] font-medium sm:px-[50px] md:px-[100px] lg:px-[350px] xl:px-[450px] mb-8">{subtitle}</p>
-      <div>
+    <div className="relative px-5 text-center">
+      <h1 className="relative text-4xl text-[#202b36] font-bold mb-8 z-10">{title}</h1>
+      <p className="relative text-[#5b6f82] font-medium sm:px-[50px] md:px-[100px] lg:px-[350px] xl:px-[450px] mb-8 z-10">{subtitle}</p>
+      <div className="relative z-10">
         <input 
           placeholder={inputLabel}
           value={inputValue}
@@ -34,6 +36,13 @@ const LayoutHeader = ({ data }: Props) => {
           {buttonCopy}
         </button>
       </div>
+      <Image
+        className="absolute -z-0 -top-40 left-[25%]"
+        src={heroBackground?.url || ''}
+        width={heroBackground?.width}
+        height={heroBackground?.height}
+        alt=''
+      />
     </div>
   );
 };

@@ -8,6 +8,8 @@ export interface PageModel {
   }
   heroBackground: {
     url: string;
+    width: number;
+    height: number;
   }
   inputLabel: string;
   buttonCopy: string;

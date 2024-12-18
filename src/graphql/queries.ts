@@ -18,6 +18,8 @@ export const GET_PAGE = gql`
         }
         heroBackground {
           url
+          width
+          height
         }
         inputLabel
         buttonCopy
