@@ -82,7 +82,6 @@ const LayoutHeader = ({ data }: Props) => {
             alt=''
           />
         </div>
-        
       </div>
     </div>
   );
