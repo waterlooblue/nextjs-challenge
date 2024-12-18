@@ -25,8 +25,6 @@ interface Props {
 }
 
 const Home = ({ header, page, footer }: Props) => {
-  console.log(header);
-  console.log(footer);
   return (
     <Layout header={header} footer={footer}>
       <h1>{page.title}</h1>
