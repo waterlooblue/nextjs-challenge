@@ -6,7 +6,7 @@ interface Props {
   data?: PageModel;
 }
 
-const LayoutHeader = ({ data }: Props) => {
+const Hero = ({ data }: Props) => {
   const { 
     title,
     subtitle,
@@ -87,4 +87,4 @@ const LayoutHeader = ({ data }: Props) => {
   );
 };
 
-export default LayoutHeader;
+export default Hero;
