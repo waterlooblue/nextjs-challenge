@@ -37,7 +37,7 @@ const LayoutHeader = ({ data }: Props) => {
         </button>
       </div>
       <Image
-        className="absolute -z-0 -top-40 left-[15%] lg:left-[25%] min-w-[1480px]"
+        className="absolute -z-0 -top-40 left-[25%] min-w-[1480px]"
         src={heroBackground?.url || ''}
         width={heroBackground?.width}
         height={heroBackground?.height}
