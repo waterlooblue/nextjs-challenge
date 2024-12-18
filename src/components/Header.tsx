@@ -8,9 +8,9 @@ interface Props {
 
 const LayoutHeader = ({ data }: Props) => {
   return (
-    <header className='container py-11'>
+    <header className="container flex px-5 py-11">
       <Link href="/" aria-label="Navigate to homepage">
-        <Image src={data?.logo.url || ''} width={62} height={62} alt=''/>
+        <Image src={data?.logo.url || ''} width={32} height={32} alt=''/>
       </Link>
     </header>
   );
