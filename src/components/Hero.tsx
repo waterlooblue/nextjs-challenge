@@ -21,7 +21,7 @@ const LayoutHeader = ({ data }: Props) => {
   return (
     <div className="relative px-5 text-center">
       <h1 className="relative text-4xl text-[#202b36] font-bold mb-8 z-10">{title}</h1>
-      <p className="relative text-[#5b6f82] font-medium sm:px-[50px] md:px-[100px] lg:px-[350px] xl:px-[450px] mb-8 z-10">{subtitle}</p>
+      <p className="relative text-[#5b6f82] font-medium px-5 mx-auto max-w-[540px] mb-8 z-10">{subtitle}</p>
       <div className="relative z-10">
         <input 
           placeholder={inputLabel}
@@ -37,7 +37,7 @@ const LayoutHeader = ({ data }: Props) => {
         </button>
       </div>
       <Image
-        className="absolute -z-0 -top-40 left-[25%]"
+        className="absolute -z-0 -top-40 left-[15%] lg:left-[25%] min-w-[1480px]"
         src={heroBackground?.url || ''}
         width={heroBackground?.width}
         height={heroBackground?.height}
