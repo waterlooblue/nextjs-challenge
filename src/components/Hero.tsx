@@ -21,7 +21,7 @@ const Hero = ({ data }: Props) => {
     heroBackground,
     heroImage
   } = data || {};
-  const { register, formState: { errors, isValid }, handleSubmit } = useForm<EmailFormInputs>();
+  const { register, formState: { errors, isValid, touchedFields }, handleSubmit } = useForm<EmailFormInputs>();
   const router = useRouter()
   const onSubmit: SubmitHandler<EmailFormInputs> = async (data) => {
     if (isValid) {
@@ -51,15 +51,18 @@ const Hero = ({ data }: Props) => {
             type='email'
             placeholder={inputLabel}
             aria-invalid={!!errors.email}
-            className="min-w-[250px] placeholder-gray-300 shadow appearance-none border invalid:border-red-500 invalid:focus:ring-red-500 focus:outline-none focus:shadow-outline py-3 px-3 mx-1 mb-3 sm:mb-0 w-full sm:w-[initial] rounded"
+            className={`min-w-[250px] placeholder-gray-300 shadow appearance-none border focus:outline-none focus:shadow-outline py-3 px-3 mx-1 mb-3 sm:mb-0 w-full sm:w-[initial] rounded ${errors.email && touchedFields.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
             required
-            {...register('email', { required: 'An E-mail address is required', pattern: /\S+@\S+\.\S+/ })}
+            {...register('email', { 
+              required: 'An E-mail address is required',
+              pattern: /\S+@\S+\.\S+/ })
+            }
           />
           {(errors.email && errors.email.type === 'required') &&
-            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>This field is required</p>
+            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'This field is required'}</p>
           }
           {(errors.email && errors.email.type === 'pattern') &&
-            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>Invalid email address</p>
+            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'Invalid email address'}</p>
           }
         </label>
         <button
