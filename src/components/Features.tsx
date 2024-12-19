@@ -10,7 +10,6 @@ const Features = ({ data }: Props) => {
     featuresCollection,
     featureBackground
   } = data || {};
-  console.log(featuresCollection)
   return (
     <div className="relative px-5 mb-[200px]">
       <div className="grid md:grid-cols-2 gap-16 max-w-[700px] mx-auto">
