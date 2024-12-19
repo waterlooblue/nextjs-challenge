@@ -23,7 +23,7 @@ const Hero = ({ data }: Props) => {
     heroImage
   } = data || {};
   const { register, formState: { errors, isValid, touchedFields }, handleSubmit } = useForm<EmailFormInputs>();
-  const router = useRouter()
+  const router = useRouter();
   const onSubmit: SubmitHandler<EmailFormInputs> = async (data) => {
     if (isValid) {
       const validation = await validateEmail(data.email);
