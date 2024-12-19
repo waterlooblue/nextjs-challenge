@@ -2,6 +2,10 @@
 
 [Click here to see the live demo](https://agency-analytics-kappa.vercel.app/) hosted on [Vercel](https://vercel.com/)
 
+## Google Page Speed
+
+![alt text](image-1.png)
+
 ## Running the project locally
 
 ### .env
@@ -21,7 +25,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 
 ## Built With
 
