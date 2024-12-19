@@ -56,3 +56,24 @@ export const GET_PAGE = gql`
     }
   }
 `
+export const GET_LAYOUT = gql`
+  query GetLayout {
+    headerCollection (limit: 1) {
+      items {
+        logo {
+          url
+          width
+          height
+        }
+      }
+    }
+    footerCollection (limit: 1) {
+      items {
+        copyright
+        background {
+          url
+        }
+      }
+    }
+  }
+`

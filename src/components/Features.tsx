@@ -10,9 +10,8 @@ const Features = ({ data }: Props) => {
     featuresCollection,
     featureBackground
   } = data || {};
-  console.log(featuresCollection)
   return (
-    <div className="relative px-5 mb-[200px]">
+    <section className="relative px-5 mb-[200px]">
       <div className="grid md:grid-cols-2 gap-16 max-w-[700px] mx-auto">
         {featuresCollection?.items?.map(feature => (
           <div key={feature._id} className="flex flex-col flex-wrap items-center mx-auto max-w-[350px] relative z-10">
@@ -35,7 +34,7 @@ const Features = ({ data }: Props) => {
         height={featureBackground?.height}
         alt=''
       />
-    </div>
+    </section>
   );
 };
 

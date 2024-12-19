@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { PageModel } from "@/models/Page";
+import { validateEmail } from "@/util/disify";
 
 interface Props {
   data?: PageModel;
 }
+
+type EmailFormInputs = {
+  email: string;
+};
 
 const Hero = ({ data }: Props) => {
   const { 
@@ -15,12 +21,20 @@ const Hero = ({ data }: Props) => {
     heroBackground,
     heroImage
   } = data || {};
-  const [inputValue, setInputValue] = useState('');
-  const handleOnClick = () => {
-    console.log(inputValue)
-  }
+  const { register, formState: { errors, isValid, touchedFields }, handleSubmit } = useForm<EmailFormInputs>();
+  const router = useRouter()
+  const onSubmit: SubmitHandler<EmailFormInputs> = async (data) => {
+    if (isValid) {
+      const validation = await validateEmail(data.email);
+      if (validation.disposable) {
+        alert(`REQUEST FAILED: ${data.email} is invalid!`)
+      } else if (!validation.disposable && validation.format) {
+        router.push('/success');
+      }
+    }
+  };
   return (
-    <div className="relative px-5 text-center pb-5 mb-5">
+    <section className="relative px-5 text-center pb-5 mb-5">
       <Image
         className="absolute -z-0 -top-[25%] left-[20%] min-w-[1480px]"
         src={heroBackground?.url || ''}
@@ -30,20 +44,34 @@ const Hero = ({ data }: Props) => {
       />
       <h1 className="relative text-3xl md:text-4xl text-[#202b36] font-bold mb-8 z-10">{title}</h1>
       <p className="relative text-lg text-[#5b6f82] font-medium px-5 mx-auto max-w-[600px] mb-8 z-10">{subtitle}</p>
-      <div className="relative z-10 mb-[75px]">
-        <input 
-          placeholder={inputLabel}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          className="min-w-[250px] placeholder-gray-300 shadow appearance-none border focus:outline-none focus:shadow-outline py-3 px-3 mx-1 mb-3 lg:mb-0 w-full sm:w-[initial] rounded"
-        />
+      <form noValidate onSubmit={handleSubmit(onSubmit)} className="relative z-10 mb-[75px]">
+        <label htmlFor='email' className='relative block sm:inline-block'>
+          <input 
+            id='email'
+            type='email'
+            placeholder={inputLabel}
+            aria-invalid={!!errors.email}
+            className={`min-w-[250px] placeholder-gray-300 shadow appearance-none border focus:outline-none focus:shadow-outline py-3 px-3 mx-1 mb-3 sm:mb-0 w-full sm:w-[initial] rounded ${errors.email && touchedFields.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+            required
+            {...register('email', { 
+              required: 'An E-mail address is required',
+              pattern: /\S+@\S+\.\S+/ })
+            }
+          />
+          {(errors.email && errors.email.type === 'required') &&
+            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'This field is required'}</p>
+          }
+          {(errors.email && errors.email.type === 'pattern') &&
+            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'Invalid email address'}</p>
+          }
+        </label>
         <button
-          onClick={handleOnClick}
+          type='submit'
           className="bg-gradient-to-r from-[#1676ed] to-[#4590f0] hover:from-blue-700 hover:to-blue-600 text-white text-xs font-bold uppercase py-4 px-5 mx-1 w-full sm:w-[initial] rounded"
         >
           {buttonCopy}
         </button>
-      </div>
+      </form>
       <div className="flex flex-wrap justify-center mb-12">
         <div className="relative mb-[80px]">
           <Image
@@ -83,7 +111,7 @@ const Hero = ({ data }: Props) => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
