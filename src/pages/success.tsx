@@ -1,17 +1,13 @@
 import { GetStaticProps } from "next";
 import { HeaderModel } from "@/models/Header";
 import { FooterModel } from "@/models/Footer";
-import { PageModel } from "@/models/Page";
-import { GET_PAGE } from "@/graphql/queries";
+import { GET_LAYOUT } from "@/graphql/queries";
 import client from "@/util/apollo-client";
 import Layout from "@/components/Layout";
 
-interface PageData {
+interface LayoutData {
   headerCollection: {
     items: HeaderModel[];
-  };
-  pageCollection: {
-    items: PageModel[];
   };
   footerCollection: {
     items: FooterModel[];
@@ -35,7 +31,7 @@ const Home = ({ header, footer }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await client.query<PageData>({ query: GET_PAGE });
+  const { data } = await client.query<LayoutData>({ query: GET_LAYOUT });
   return {
     props: {
       header: data.headerCollection.items[0],
