@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { PageModel } from "@/models/Page";
 import { validateEmail } from "@/util/disify";
@@ -17,10 +18,14 @@ const Hero = ({ data }: Props) => {
     heroImage
   } = data || {};
   const [email, setEmail] = useState('');
+  const router = useRouter()
   const handleClick = async () => {
     const validation = await validateEmail(email);
+    console.log(validation)
     if (validation.disposable) {
       alert(`REQUEST FAILED: ${email} is invalid!`)
+    } else if (!validation.disposable && validation.format) {
+      router.push('/success');
     }
   };
   return (
