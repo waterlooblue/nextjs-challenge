@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { PageModel } from "@/models/Page";
+import { validateEmail } from "@/util/disify";
 
 interface Props {
   data?: PageModel;
@@ -15,10 +16,13 @@ const Hero = ({ data }: Props) => {
     heroBackground,
     heroImage
   } = data || {};
-  const [inputValue, setInputValue] = useState('');
-  const handleOnClick = () => {
-    console.log(inputValue)
-  }
+  const [email, setEmail] = useState('');
+  const handleClick = async () => {
+    const validation = await validateEmail(email);
+    if (validation.disposable) {
+      alert(`REQUEST FAILED: ${email} is invalid!`)
+    }
+  };
   return (
     <div className="relative px-5 text-center pb-5 mb-5">
       <Image
@@ -33,12 +37,12 @@ const Hero = ({ data }: Props) => {
       <div className="relative z-10 mb-[75px]">
         <input 
           placeholder={inputLabel}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="min-w-[250px] placeholder-gray-300 shadow appearance-none border focus:outline-none focus:shadow-outline py-3 px-3 mx-1 mb-3 lg:mb-0 w-full sm:w-[initial] rounded"
         />
         <button
-          onClick={handleOnClick}
+          onClick={handleClick}
           className="bg-gradient-to-r from-[#1676ed] to-[#4590f0] hover:from-blue-700 hover:to-blue-600 text-white text-xs font-bold uppercase py-4 px-5 mx-1 w-full sm:w-[initial] rounded"
         >
           {buttonCopy}
