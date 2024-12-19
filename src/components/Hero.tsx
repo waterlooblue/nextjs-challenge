@@ -6,7 +6,7 @@ interface Props {
   data?: PageModel;
 }
 
-const LayoutHeader = ({ data }: Props) => {
+const Hero = ({ data }: Props) => {
   const { 
     title,
     subtitle,
@@ -20,16 +20,16 @@ const LayoutHeader = ({ data }: Props) => {
     console.log(inputValue)
   }
   return (
-    <div className="relative px-5 text-center">
+    <div className="relative px-5 text-center pb-5 mb-5">
       <Image
-        className="absolute -z-0 -top-40 left-[25%] min-w-[1480px]"
+        className="absolute -z-0 -top-[25%] left-[20%] min-w-[1480px]"
         src={heroBackground?.url || ''}
         width={heroBackground?.width}
         height={heroBackground?.height}
         alt=''
       />
-      <h1 className="relative text-4xl text-[#202b36] font-bold mb-8 z-10">{title}</h1>
-      <p className="relative text-[#5b6f82] font-medium px-5 mx-auto max-w-[540px] mb-8 z-10">{subtitle}</p>
+      <h1 className="relative text-3xl md:text-4xl text-[#202b36] font-bold mb-8 z-10">{title}</h1>
+      <p className="relative text-lg text-[#5b6f82] font-medium px-5 mx-auto max-w-[600px] mb-8 z-10">{subtitle}</p>
       <div className="relative z-10 mb-[75px]">
         <input 
           placeholder={inputLabel}
@@ -44,8 +44,8 @@ const LayoutHeader = ({ data }: Props) => {
           {buttonCopy}
         </button>
       </div>
-      <div className="flex flex-wrap justify-center">
-        <div className="relative">
+      <div className="flex flex-wrap justify-center mb-12">
+        <div className="relative mb-[80px]">
           <Image
             className="relative shadow-xl z-10"
             src={heroImage?.url || ''}
@@ -82,10 +82,9 @@ const LayoutHeader = ({ data }: Props) => {
             alt=''
           />
         </div>
-        
       </div>
     </div>
   );
 };
 
-export default LayoutHeader;
+export default Hero;
