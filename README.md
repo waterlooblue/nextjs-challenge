@@ -1,6 +1,6 @@
 ## Live Demo
 
-[Click here to see the live demo](https://agency-analytics-kappa.vercel.app/)
+[Click here to see the live demo](https://agency-analytics-kappa.vercel.app/) hosted on [Vercel](https://vercel.com/)
 
 ## Running the project locally
 
@@ -31,3 +31,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Motion](https://motion.dev/)
 - [GraphQL](https://graphql.org/)
 - [Contentful](https://be.contentful.com)
+- [Vercel](https://vercel.com/)
