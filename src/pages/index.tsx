@@ -26,8 +26,6 @@ interface Props {
   footer: FooterModel;
 }
 
-
-
 const Home = ({ header, page, footer }: Props) => {
   return (
     <Layout header={header} footer={footer}>
