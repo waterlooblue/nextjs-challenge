@@ -4,7 +4,7 @@ interface EmailValidation {
   domain: string;
   format: boolean;
   dns?: boolean;
-  whitelist?: true;
+  whitelist?: boolean;
 }
 
 export async function validateEmail(email: string): Promise<EmailValidation> {
