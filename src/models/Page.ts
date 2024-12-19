@@ -17,6 +17,10 @@ export interface PageModel {
   buttonCopy: string;
   featureBackground: {
     url: string;
+    width: number;
+    height: number;
   }
-  featuresCollection: FeatureModel[];
+  featuresCollection: {
+    items: FeatureModel[];
+  }
 }

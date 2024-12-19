@@ -1,5 +1,7 @@
 export interface HeaderModel {
   logo: {
-    url: string
+    url: string;
+    width: number;
+    height: number;
   }
 }

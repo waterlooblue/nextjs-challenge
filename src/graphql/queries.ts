@@ -6,6 +6,8 @@ export const GET_PAGE = gql`
       items {
         logo {
           url
+          width
+          height
         }
       }
     }
@@ -27,13 +29,18 @@ export const GET_PAGE = gql`
         buttonCopy
         featureBackground {
           url
+          width
+          height
         }
         featuresCollection {
           items {
+            _id
             title
             description
             image {
               url
+              width
+              height
             }
           }
         }
