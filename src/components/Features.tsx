@@ -23,7 +23,7 @@ const Features = ({ data }: Props) => {
               alt=''
             />
             <h2 className="text-[#202b36] text-2xl font-bold mb-3">{feature.title}</h2>
-            <p className="text-[#5b6f82] text-lg text-center">{feature.description}</p>          
+            <p className="text-[#5b6f82] text-lg lato text-center">{feature.description}</p>          
           </div>
         ))}
       </div>

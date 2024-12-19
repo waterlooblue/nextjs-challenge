@@ -43,7 +43,7 @@ const Hero = ({ data }: Props) => {
         alt=''
       />
       <h1 className="relative text-3xl md:text-4xl text-[#202b36] font-bold mb-8 z-10">{title}</h1>
-      <p className="relative text-lg text-[#5b6f82] font-medium px-5 mx-auto max-w-[600px] mb-8 z-10">{subtitle}</p>
+      <p className="relative text-lg text-[#5b6f82] lato px-5 mx-auto max-w-[600px] mb-8 z-10">{subtitle}</p>
       <form noValidate onSubmit={handleSubmit(onSubmit)} className="relative z-10 mb-[75px]">
         <label htmlFor='email' className='relative block sm:inline-block'>
           <input 
@@ -51,7 +51,7 @@ const Hero = ({ data }: Props) => {
             type='email'
             placeholder={inputLabel}
             aria-invalid={!!errors.email}
-            className={`min-w-[250px] placeholder-gray-300 shadow appearance-none border focus:outline-none focus:shadow-outline py-3 px-3 mx-1 mb-3 sm:mb-0 w-full sm:w-[initial] rounded ${errors.email && touchedFields.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+            className={`min-w-[250px] placeholder-gray-300 lato shadow appearance-none border focus:outline-none focus:shadow-outline py-3 px-3 mx-1 mb-3 sm:mb-0 w-full sm:w-[initial] rounded ${errors.email && touchedFields.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
             required
             {...register('email', { 
               required: 'An E-mail address is required',
@@ -59,10 +59,10 @@ const Hero = ({ data }: Props) => {
             }
           />
           {(errors.email && errors.email.type === 'required') &&
-            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'This field is required'}</p>
+            <p className='absolute text-red-500 lato -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'This field is required'}</p>
           }
           {(errors.email && errors.email.type === 'pattern') &&
-            <p className='absolute text-red-500 -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'Invalid email address'}</p>
+            <p className='absolute text-red-500 lato -bottom-[85px] sm:-bottom-[30px] left-[8px]'>{'Invalid email address'}</p>
           }
         </label>
         <button

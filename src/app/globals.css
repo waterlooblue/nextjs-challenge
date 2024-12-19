@@ -5,6 +5,8 @@
 :root {
   --background: #f6f8fa;
   --foreground: #171717;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-lato: 'Lato', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,8 +16,16 @@
   }
 }
 
+.roboto {
+  font-family: var(--font-roboto);
+}
+
+.lato {
+  font-family: var(--font-lato);
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
