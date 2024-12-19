@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { PageModel } from "@/models/Page";
 import { validateEmail } from "@/util/disify";
+import { motion } from "motion/react";
 
 interface Props {
   data?: PageModel;
@@ -42,9 +43,45 @@ const Hero = ({ data }: Props) => {
         height={heroBackground?.height}
         alt=''
       />
-      <h1 className="relative text-3xl md:text-4xl text-[#202b36] font-bold mb-8 z-10">{title}</h1>
-      <p className="relative text-lg text-[#5b6f82] lato px-5 mx-auto max-w-[600px] mb-8 z-10">{subtitle}</p>
-      <form noValidate onSubmit={handleSubmit(onSubmit)} className="relative z-10 mb-[75px]">
+      <motion.h1
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, delay: 0.1, ease: "easeInOut" }}
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 20 }
+        }}
+        className="relative text-3xl md:text-4xl text-[#202b36] font-bold mb-8 z-10"
+      >
+        {title}
+      </motion.h1>
+      <motion.p
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, delay: 0.2, ease: "easeInOut" }}
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 20 }
+        }}
+        className="relative text-lg text-[#5b6f82] lato px-5 mx-auto max-w-[600px] mb-8 z-10"
+      >
+        {subtitle}
+      </motion.p>
+      <motion.form
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 20 }
+        }}
+        noValidate
+        onSubmit={handleSubmit(onSubmit)}
+        className="relative sm:flex items-center justify-center z-10 mb-[75px]"
+      >
         <label htmlFor='email' className='relative block sm:inline-block'>
           <input 
             id='email'
@@ -71,7 +108,7 @@ const Hero = ({ data }: Props) => {
         >
           {buttonCopy}
         </button>
-      </form>
+      </motion.form>
       <div className="flex flex-wrap justify-center mb-12">
         <div className="relative mb-[80px]">
           <Image
