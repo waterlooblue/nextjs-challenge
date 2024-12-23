@@ -1,16 +1,5 @@
-import { gql } from "@apollo/client";
-
-export const GET_PAGE = gql`
+export const GET_PAGE = `
   query GetLandingPage {
-    headerCollection (limit: 1) {
-      items {
-        logo {
-          url
-          width
-          height
-        }
-      }
-    }
     pageCollection (limit: 1) {
       items {
         title
@@ -46,18 +35,11 @@ export const GET_PAGE = gql`
         }
       }
     }
-    footerCollection (limit: 1) {
-      items {
-        copyright
-        background {
-          url
-        }
-      }
-    }
   }
 `
-export const GET_LAYOUT = gql`
-  query GetLayout {
+
+export const GET_HEADER = `
+  query GetHeader {
     headerCollection (limit: 1) {
       items {
         logo {
@@ -67,6 +49,11 @@ export const GET_LAYOUT = gql`
         }
       }
     }
+  }
+`
+
+export const GET_FOOTER = `
+  query GetLayout {
     footerCollection (limit: 1) {
       items {
         copyright
