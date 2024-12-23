@@ -1,8 +1,10 @@
+"use client";
+
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { PageModel } from "@/models/Page";
-import { validateEmail } from "@/util/disify";
+import { validateEmail } from "@/lib/disify";
 import { motion } from "motion/react";
 
 interface Props {
