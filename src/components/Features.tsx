@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { PageModel } from "@/models/Page";
 import { motion } from "motion/react";
