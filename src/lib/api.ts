@@ -1,4 +1,7 @@
 import { GET_FOOTER, GET_HEADER, GET_PAGE } from "@/graphql/queries";
+import { HeaderModel } from "@/models/Header";
+import { FooterModel } from "@/models/Footer";
+import { PageModel } from "@/models/Page";
 
 async function fetchGraphQL(query: string, preview = false) {
   return fetch(
@@ -20,21 +23,21 @@ async function fetchGraphQL(query: string, preview = false) {
   ).then((response) => response.json());
 }
 
-export async function getPage(isDraftMode = false) {
+export async function getPage(isDraftMode = false): Promise<PageModel> {
   const page = await fetchGraphQL(GET_PAGE,
     isDraftMode
   );
   return page?.data.pageCollection.items[0];
 }
 
-export async function getHeader(isDraftMode = false) {
+export async function getHeader(isDraftMode = false): Promise<HeaderModel> {
   const page = await fetchGraphQL(GET_HEADER,
     isDraftMode
   );
   return page?.data.headerCollection.items[0];
 }
 
-export async function getFooter(isDraftMode = false) {
+export async function getFooter(isDraftMode = false): Promise<FooterModel> {
   const page = await fetchGraphQL(GET_FOOTER,
     isDraftMode
   );
