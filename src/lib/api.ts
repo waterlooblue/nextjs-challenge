@@ -1,4 +1,6 @@
-import { GET_FOOTER, GET_HEADER, GET_PAGE } from "@/graphql/queries";
+import { GET_HEADER } from "@/graphql/header";
+import { GET_FOOTER } from "@/graphql/footer";
+import { GET_PAGE } from "@/graphql/page";
 import { HeaderModel } from "@/models/Header";
 import { FooterModel } from "@/models/Footer";
 import { PageModel } from "@/models/Page";

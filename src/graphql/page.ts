@@ -37,30 +37,3 @@ export const GET_PAGE = `
     }
   }
 `
-
-export const GET_HEADER = `
-  query GetHeader {
-    headerCollection (limit: 1) {
-      items {
-        logo {
-          url
-          width
-          height
-        }
-      }
-    }
-  }
-`
-
-export const GET_FOOTER = `
-  query GetLayout {
-    footerCollection (limit: 1) {
-      items {
-        copyright
-        background {
-          url
-        }
-      }
-    }
-  }
-`
