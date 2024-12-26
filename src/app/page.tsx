@@ -6,9 +6,9 @@ import { getPage } from "@/lib/api";
 export default async function Home() {
   const page = await getPage();
   return (
-    <>
+    <main className="grow">
       <Hero data={page}/>
       <Features data={page}/>
-    </>
+    </main>
   );
 };

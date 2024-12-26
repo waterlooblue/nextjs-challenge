@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <div className="overflow-hidden xl:container flex flex-col justify-between min-h-screen bg-white shadow-xl">
           <Header/>
-          <main className="grow">{children}</main>
+          {children}
           <Footer/>
         </div>
       </body>
